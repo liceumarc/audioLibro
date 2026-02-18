@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioLibros - Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+    <style type="text/tailwindcss">
+        @theme {
+      /* Backgrounds */
+      --color-background: hsl(220, 20%, 97%);
+      --color-aside: hsl(220, 20%, 94%);
+      --color-surface: hsl(220, 15%, 92%);
+
+      /* Text */
+      --color-text: hsl(220, 25%, 12%);
+      --color-text-muted: hsl(220, 10%, 40%);
+
+      /* Brand / Accent */
+      --color-accent: hsl(220, 70%, 45%);
+
+      /* Interaction */
+      --color-selected: hsl(220, 70%, 90%);
+      --color-button: hsl(220, 70%, 45%);
+    }
+
+    .dark {
+      --color-background: hsl(220, 25%, 10%);
+      --color-aside: hsl(220, 25%, 13%);
+      --color-surface: hsl(220, 20%, 20%);
+      --color-text: hsl(220, 15%, 92%);
+      --color-text-muted: hsl(220, 10%, 65%);
+      --color-accent: hsl(220, 70%, 65%);
+      --color-selected: hsl(220, 30%, 20%);
+    }
+
+    * { @apply transition-colors duration-200; }
+  </style>
+</head>
+
+<body class="bg-background text-text font-sans antialiased">
+    <div class="flex h-screen overflow-hidden">
+
+        <aside class="hidden md:flex w-72 bg-aside flex-col p-6 border-r border-surface shadow-xl z-10">
+            <div class="flex items-center gap-3 mb-10 px-2">
+                <div class="w-10 h-10 bg-accent rounded-xl flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined">library_music</span>
+                </div>
+                <h1 class="text-xl font-bold tracking-tight">AudioLibros</h1>
+            </div>
+
+            <nav class="flex-1">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#"
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface text-text-muted hover:text-text font-medium">
+                            <span class="material-symbols-outlined">grid_view</span>
+                            <span>Todos los libros</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./index.html"
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface text-text-muted hover:text-text font-medium">
+                            <span class="material-symbols-outlined">menu_book</span>
+                            <span>Mi colección</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface text-text-muted hover:text-text font-medium">
+                            <span class="material-symbols-outlined">history</span>
+                            <span>Recientemente Reproducidos</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </aside>
+
+        <div class="flex-1 flex flex-col overflow-y-auto">
+
+            <header
+                class="sticky top-0 bg-background/80 backdrop-blur-md z-20 flex items-center justify-between p-6 border-b border-surface">
+                <a href="./index.html"
+                    class="flex items-center justify-center m-2 p-2.5 bg-surface text-text-muted hover:text-accent hover:bg-selected rounded-xl transition-all duration-300 group md:hidden"
+                    title="Volver al inicio">
+                    <span
+                        class="material-symbols-outlined text-2xl group-active:scale-90 transition-transform">home</span>
+                </a>
+                <div class="relative w-full max-w-lg">
+                    <span
+                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-muted">search</span>
+                    <input
+                        class="w-full bg-surface border-none rounded-2xl py-3 pl-12 pr-4 text-sm focus:ring-2 focus:ring-accent outline-none"
+                        placeholder="Search..." type="text" />
+                </div>
+            </header>
+
+            <main class="flex-1 flex items-center justify-center p-4 md:p-8">
+                <div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+
+                    <div class="flex flex-col items-center gap-6">
+                        <div
+                            class="relative group w-full max-w-sm aspect-[3/4] shadow-2xl shadow-black/60 rounded-3xl overflow-hidden transition-all duration-700 hover:scale-[1.01]">
+                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80"
+                                alt="Book Cover" class="w-full h-full object-cover" />
+                            <div class="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent">
+                            </div>
+                        </div>
+
+                        <audio id="audio-player" class="hidden">
+                            <source src="tu-audio.mp3" type="audio/mpeg">
+                            <track label="Transcripción" kind="captions" srclang="es" src="tu-archivo.vtt" default>
+                            Tu navegador no soporta el elemento audio.
+                        </audio>
+                    </div>
+
+                    <div class="flex flex-col h-full justify-center">
+                        <div id="chapter-select-container" class="mb-4"></div>
+                        <div class="mb-6">
+
+                            <h2 class="text-3xl md:text-5xl font-black mb-2 leading-tight">Don Caesar de Bazan</h2>
+                            <p class="text-lg text-text-muted">Narrado por: Andoli</p>
+                        </div>
+
+                        <div
+                            class="relative bg-surface/50 border border-surface rounded-2xl p-6 mb-8 h-32 flex items-center justify-center overflow-hidden">
+                            <p id="vtt-display"
+                                class="text-center text-xl font-medium leading-relaxed italic opacity-80">
+                                "Aquí aparecerá el texto de tu archivo VTT sincronizado con el audio..."
+                            </p>
+                        </div>
+
+                        <div class="mb-8">
+                            <div class="flex justify-between text-xs font-bold mb-3 text-text-muted">
+                                <span id="current-time">00:00</span>
+                                <span id="duration">00:00</span>
+                            </div>
+                            <div class="relative w-full h-2 bg-surface rounded-full cursor-pointer group">
+                                <div id="progress-bar"
+                                    class="absolute top-0 left-0 h-full w-[0%] bg-accent rounded-full transition-all">
+                                </div>
+                                <div id="progress-handle"
+                                    class="absolute top-1/2 left-[0%] -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-white border-2 border-accent rounded-full shadow-lg scale-0 group-hover:scale-100 transition-transform">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-center justify-between lg:justify-start md:gap-4 sm:gap-2 ld:gap-6 xl:gap-8">
+                            <button class="text-text-muted hover:text-accent transition-colors cursor-pointer"
+                                title="Retroceder 10s">
+                                <span class="material-symbols-outlined text-2xl">replay_10</span>
+                            </button>
+
+                            <button id="play-button"
+                                class="w-[60px] h-[60px] min-w-[40px] min-h-[40px] flex items-center justify-center bg-accent text-white rounded-full shadow-xl shadow-accent/30 hover:scale-105 active:scale-95 transition-all cursor-pointer">
+                                <span class="material-symbols-outlined text-4xl">play_arrow</span>
+                            </button>
+
+                            <button class="text-text-muted hover:text-accent transition-colors cursor-pointer"
+                                title="Adelantar 30s">
+                                <span class="material-symbols-outlined text-2xl">forward_30</span>
+                            </button>
+
+                            <div class="ml-auto lg:ml-8 flex items-center gap-4 bg-surface px-2 py-2 rounded-xl">
+                                <span class="material-symbols-outlined text-text-muted">volume_up</span>
+                                <input type="range" class="w-20 accent-accent cursor-pointer" value="50" max="100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="./assets/js/player.js"></script>
+</body>
+
+</html>
