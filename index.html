@@ -28,13 +28,14 @@
     }
 
     .dark {
-      --color-background: hsl(220, 25%, 10%);
-      --color-aside: hsl(220, 25%, 13%);
-      --color-surface: hsl(220, 20%, 20%);
-      --color-text: hsl(220, 15%, 92%);
-      --color-text-muted: hsl(220, 10%, 65%);
-      --color-accent: hsl(220, 70%, 65%);
+      --color-background: hsl(220, 25%, 7%); 
+      --color-aside: hsl(220, 25%, 10%);
+      --color-surface: hsl(220, 20%, 16%); 
+      --color-text: hsl(220, 15%, 98%);
+      --color-text-muted: hsl(220, 10%, 75%);
+      --color-accent: hsl(217, 91%, 55%); 
       --color-selected: hsl(220, 30%, 20%);
+      --shadow-accent: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
     }
 
     /* Suavizado de transiciones */
@@ -109,8 +110,8 @@
                   src="./assets/img/foto-flores.jpg" alt="Foto de unas flores" />
               </div>
               <div class="p-6 flex flex-col justify-center flex-1">
-                <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Drama</span>
-                <h3 class="text-2xl font-bold mb-2 group-hover:text-accent">Don Caesar de Bazan</h3>
+                <span class="text-accent text-xs text-white uppercase tracking-widest mb-2">Drama</span>
+                <h3 class="text-2xl font-bold mb-2 ">Don Caesar de Bazan</h3>
                 <p class="text-text-muted text-sm mb-6 line-clamp-2">Gilbert Arthur à Beckett (April 7, 1837 – October
                   15, 1891) was an English writer. He was a regular member of the staff of Punch magazine along with his
                   younger brother Arthur. Apart from his work on 'Punch,' he wrote songs and music for the German Reeds'
@@ -118,7 +119,7 @@
                 <div class="flex items-center gap-4">
                   <a href="./libro.html">
                     <button
-                      class="flex items-center gap-2 bg-accent text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-accent/20 hover:scale-105 active:scale-95 transition-transform">
+                      class="flex items-center gap-2 bg-accent text-slate-950 font-black px-6 py-2.5 rounded-xl font-extrabold text-sm shadow-xl shadow-accent/30 transition-all ring-1 ring-white/10 hover:ring-accent/50 active:scale-95">
                       <span class="material-symbols-outlined text-sm">play_arrow</span> Reanudar
                     </button>
                   </a>
@@ -136,13 +137,13 @@
                   src="./assets/img/foto-penguin.jpg" alt="Foto de unos pingüinos" />
               </div>
               <div class="p-6 flex flex-col justify-center flex-1">
-                <span class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Psicología</span>
-                <h3 class="text-2xl font-bold mb-2 group-hover:text-accent">El Mindset Creativo</h3>
+                <span class="text-accent text-xs text-white font-bold uppercase tracking-widest mb-2">Psicología</span>
+                <h3 class="text-2xl font-bold mb-2">El Mindset Creativo</h3>
                 <p class="text-text-muted text-sm mb-6 line-clamp-2">Entiende cómo funciona el cerebro cuando estás en
                   el estado de "flow".</p>
                 <div class="flex items-center gap-4">
                   <button
-                    class="flex items-center gap-2 bg-accent text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-accent/20 hover:scale-105 active:scale-95 transition-transform">
+                    class="flex items-center gap-2 bg-accent text-slate-950 font-black px-6 py-2.5 rounded-xl font-extrabold text-sm shadow-xl shadow-accent/30 transition-all ring-1 ring-white/10 hover:ring-accent/50 active:scale-95">
                     <span class="material-symbols-outlined text-sm">play_arrow</span> Reanudar
                   </button>
                   <div class="flex-1 bg-background h-1.5 rounded-full overflow-hidden">
@@ -171,7 +172,7 @@
                   </div>
                 </div>
               </div>
-              <h4 class="font-bold truncate group-hover:text-accent">Principles of Art</h4>
+              <h1 class="font-bold truncate group-hover:text-accent">Principles of Art</h1>
               <p class="text-text-muted text-sm">Ray Dalio</p>
             </div>
 
@@ -186,7 +187,7 @@
                   </div>
                 </div>
               </div>
-              <h4 class="font-bold truncate group-hover:text-accent">Learning Tomorrow</h4>
+              <h1 class="font-bold truncate group-hover:text-accent">Learning Tomorrow</h1>
               <p class="text-text-muted text-sm">Jane Doe</p>
             </div>
 
@@ -201,7 +202,7 @@
                   </div>
                 </div>
               </div>
-              <h4 class="font-bold truncate group-hover:text-accent">The Great Gatsby</h4>
+              <h1 class="font-bold truncate group-hover:text-accent">The Great Gatsby</h1>
               <p class="text-text-muted text-sm">F. Scott Fitzgerald</p>
             </div>
           </div>

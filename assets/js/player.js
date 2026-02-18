@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const select = document.createElement('select');
         select.className = "bg-surface text-text font-medium px-4 py-2 rounded-xl outline-none focus:ring-2 focus:ring-accent cursor-pointer";
+        select.id = "chapter-select";
 
         chapters.forEach((chapter, index) => {
             const option = document.createElement('option');

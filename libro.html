@@ -113,13 +113,15 @@
 
                         <audio id="audio-player" class="hidden">
                             <source src="tu-audio.mp3" type="audio/mpeg">
-                            <track label="Transcripción" kind="captions" srclang="es" src="tu-archivo.vtt" default>
+                            <track label="Transcripción" kind="captions" srclang="en" src="tu-archivo.vtt" default>
                             Tu navegador no soporta el elemento audio.
                         </audio>
                     </div>
 
                     <div class="flex flex-col h-full justify-center">
-                        <div id="chapter-select-container" class="mb-4"></div>
+                        <div id="chapter-select-container" class="mb-4">
+                            <label for="chapter-select" class="sr-only">Seleccionar capítulo</label>
+                        </div>
                         <div class="mb-6">
 
                             <h2 class="text-3xl md:text-5xl font-black mb-2 leading-tight">Don Caesar de Bazan</h2>
@@ -167,8 +169,11 @@
                             </button>
 
                             <div class="ml-auto lg:ml-8 flex items-center gap-4 bg-surface px-2 py-2 rounded-xl">
-                                <span class="material-symbols-outlined text-text-muted">volume_up</span>
-                                <input type="range" class="w-20 accent-accent cursor-pointer" value="50" max="100">
+                                <span class="material-symbols-outlined text-text-muted"
+                                    aria-hidden="true">volume_up</span>
+                                <label for="volume-control" class="sr-only">Ajustar volumen</label>
+                                <input type="range" id="volume-control" class="w-20 accent-accent cursor-pointer"
+                                    value="50" max="100">
                             </div>
                         </div>
                     </div>
