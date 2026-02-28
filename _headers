@@ -1,0 +1,33 @@
+# HTML (casi nunca cache largo)
+# Cada vez que se hace deploy se sirve nuevo
+/*.html
+  Cache-Control: public, max-age=300
+
+# CSS y JS (larga duración + versionado)
+# Si cambias el nombre del archivo en cada build, está bien 1 año
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Imágenes (WebP, JPG, PNG, SVG, AVIF)
+# 1 año de cache + immutable
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.avif
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
