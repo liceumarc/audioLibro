@@ -1,4 +1,4 @@
-# Problemas WCAG
+# audioLibro -- Estos son los problemas detectados con lightHouse y luego solucionados
 
 Background and foreground colors do not have a sufficient contrast ratio
 
@@ -8,5 +8,6 @@ Form elements do not have associated labels
 
 Select elements do not have associated label elements
 
-# Todos los Problemas WCAG han sido solucionados
+# CHECKLIST
 
+### Content ✓
