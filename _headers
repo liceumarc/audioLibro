@@ -1,23 +1,20 @@
-# Cada vez que se hace deploy se sirve nuevo
-/*.html
-  Cache-Control: public, max-age=300
+# Cache del HTML
+/*
+  Cache-Control: public, s-maxage=0, must-revalidate
 
+# Activos estáticos 
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
 /*.css
   Cache-Control: public, max-age=31536000, immutable
 
-/*.js
-  Cache-Control: public, max-age=31536000, immutable
-
-# Imágenes (WebP, JPG, PNG, SVG, AVIF)
-# 1 año de cache + immutable
+# Media y otros recursos
 /*.webp
-  Cache-Control: public, max-age=31536000, immutable
-
-/*.vtt
-  Cache-Control: public, max-age=31536000, immutable
-
+/*.jpg
+/*.png
 /*.svg
-  Cache-Control: public, max-age=31536000, immutable
-
+/*.avif
 /*.mp3
+/*.mp4
+/*.vtt
   Cache-Control: public, max-age=31536000, immutable
